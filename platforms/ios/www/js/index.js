@@ -34,6 +34,9 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        var db1 = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        alert("init Database...");
+        db1.transaction(populateDB, errorCB, successCB);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
